@@ -7,7 +7,7 @@
     <label for="inputPassword4" class="form-label">Student Name</label>
     <input type="text" class="form-control" id="inputPassword4">
   </div>
-  
+
   <div class="col-md-6">
     <label for="inputEmail4" class="form-label" >Student Age</label>
     <input type="number" class="form-control" name="studentAge" [(ngModel)]="studentAge" id="inputEmail4">
@@ -17,11 +17,11 @@
     <input type="text" class="form-control" name="gender" [(ngModel)]="gender" id="inputPassword4">
   </div>
   <div class="col-12">
-    <button type="submit" (click)="filterStudentDetails()" class="btn btn-primary">Search</button>
+    <button type="submit" (click)="search()" class="btn btn-primary">Search</button>
   </div>
 </form>
 
-<table class="table mt-5">
+<!-- <table class="table mt-5">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -31,14 +31,26 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let student of studentDetails" [ngClass]="{'table-secondary': student.gender == 'M', 'table-info': student.gender == 'F'}" [ngStyle]="{'background-color:white': student.gender == 'M', 'background-color:red': student.gender == 'F'}">
+    <tr *ngFor="let student of studentDetails" [ngClass]="{'table-secondary': student.gender == 'MALE', 'table-info': student.gender == 'FEMALE'}" [ngStyle]="{'background-color:white': student.gender == 'MALE', 'background-color:red': student.gender == 'FEMALE'}">
       <td>{{student.id}}</td>
       <td>{{student.name}}</td>
       <td>{{student.age}}</td>
       <td>{{student.gender}}</td>
     </tr>
-    <tr *ngIf="studentDetails.length == 0" colspan="4">
-      <td >No Data Found</td>
+    <tr *ngIf="studentDetails && studentDetails.length == 0" >
+      <td colspan="4">No Data Found</td>
+    </tr>
+    <tr *ngIf="isError" class="text-center text-danger">
+      <td colspan="4">Error Occured</td>
     </tr>
   </tbody>
-</table>
+</table> -->
+
+<div class="row">
+  <div class="col">
+    <label for="id">Id</label>
+  </div>
+  <div class="col">
+    <label for="id">{{studentDetails.id}}</label>
+  </div>
+</div>
